@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Chatting_create_group"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/create_group_const1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/create_group_back"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:src="@drawable/baseline_keyboard_arrow_left_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:contentDescription="@string/contentDescription"/>
+
+        <TextView
+            android:id="@+id/create_group_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="새 메시지"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/create_group_view"
+        android:layout_width="390dp"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_group_const1"
+        android:background="#99B2B2B2"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/create_group_logo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="받는 사람"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/create_group_view"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"/>
+
+    <EditText
+        android:id="@+id/create_group_search"
+        android:layout_width="380dp"
+        android:layout_height="48dp"
+        app:layout_constraintTop_toBottomOf="@id/create_group_logo2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/edittext"
+        android:inputType="text"
+        android:layout_marginTop="10dp"
+        android:hint="검색"
+        android:padding="5dp"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/create_group_logo3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/create_group_search"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="추천"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/create_group_rv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_group_logo3"
+        app:layout_constraintBottom_toTopOf="@+id/create_group_button"
+        android:layout_marginTop="15dp"/>
+
+    <Button
+        android:id="@+id/create_group_button"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="채팅 만들기"
+        android:backgroundTint="#2196F3"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

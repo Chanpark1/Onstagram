@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="13dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/create_group_rv_profile"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/ic_launcher_background"
+        android:contentDescription="@string/contentDescription"/>
+
+    <LinearLayout
+        android:id="@+id/create_group_rv_linear"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toEndOf="@+id/create_group_rv_profile"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical"
+        android:weightSum="2"
+        android:layout_marginStart="15dp">
+
+        <TextView
+            android:id="@+id/create_group_rv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="name"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="3dp"/>
+
+        <TextView
+            android:id="@+id/create_group_rv_username"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="username"
+            android:textColor="#E6898989"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="3dp"/>
+
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/create_group_rv_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
