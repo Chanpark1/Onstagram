@@ -46,7 +46,7 @@ import retrofit2.Response;
 
 public class Service extends android.app.Service {
 
-    public static final String IP = "192.168.6.171";
+    public static final String IP = "172.20.10.233";
     public static final int PORT = 4462;
 
     private final String ACCESS_ = "ACCESS";
@@ -81,7 +81,7 @@ public class Service extends android.app.Service {
 
         System.out.println("POST SERVICE ON CREATED");
 
-        System.out.println(IP);
+
 
         createNotificationChannel();
 
@@ -98,6 +98,8 @@ public class Service extends android.app.Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
+        System.out.println("IP : " + IP);
 
         Thread main_thread = new Thread() {
             @Override

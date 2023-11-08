@@ -1,5 +1,7 @@
 package com.example.onstagram.Activity;
 
+import static com.example.onstagram.Service.Service.IP;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        System.out.println(IP +  " 씨발씨발씨발씨발");
 
         startService();
 
