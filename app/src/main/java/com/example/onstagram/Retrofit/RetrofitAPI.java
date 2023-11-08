@@ -228,7 +228,7 @@ public interface RetrofitAPI {
 
     @FormUrlEncoded
     @POST("check_room_idx.php")
-    Call<GroupChatUser> check_room_idx(
+    Call<String> check_room_idx(
             @Field("room_idx") String room_idx,
             @Field("sender_idx") String sender_idx
     );

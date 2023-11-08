@@ -81,6 +81,8 @@ public class Service extends android.app.Service {
 
         System.out.println("POST SERVICE ON CREATED");
 
+        System.out.println(IP);
+
         createNotificationChannel();
 
         Notification notification = new NotificationCompat.Builder(Service.this, "222")
@@ -324,14 +326,13 @@ public class Service extends android.app.Service {
                             Intent intent = new Intent(Service.this, Chatting_group.class);
                             // 해당 유저가 room_idx로 채팅방에 속해 있는지 확인 후 sender_idx를 통해 전송자의 정보를 가져와서 알림을 띄워준다.
 
-                            Call<GroupChatUser> call = retrofitAPI.check_room_idx(filter[2], filter[3]);
+                            Call<String> call = retrofitAPI.check_room_idx(filter[2], filter[3]);
 
-                            call.enqueue(new Callback<GroupChatUser>() {
+                            call.enqueue(new Callback<String>() {
                                 @Override
-                                public void onResponse(@NonNull Call<GroupChatUser> call, @NonNull Response<GroupChatUser> response) {
+                                public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
                                     if(response.isSuccessful() && response.body() != null) {
-                                        String username = response.body().getUsername();
-                                        idx_list = response.body().getIdx_list();
+                                        String username = response.body();
 
                                         intent.putExtra("room_idx", filter[2]);
 
@@ -364,7 +365,7 @@ public class Service extends android.app.Service {
                                 }
 
                                 @Override
-                                public void onFailure(@NonNull Call<GroupChatUser> call, @NonNull Throwable t) {
+                                public void onFailure(@NonNull Call<String> call, @NonNull Throwable t) {
                                     Log.d(TAG, t.getMessage());
                                 }
                             });
