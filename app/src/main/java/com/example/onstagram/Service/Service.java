@@ -46,7 +46,7 @@ import retrofit2.Response;
 
 public class Service extends android.app.Service {
 
-    public static final String IP = "172.20.10.233";
+    public static final String IP = "172.20.10.2";
     public static final int PORT = 4462;
 
     private final String ACCESS_ = "ACCESS";

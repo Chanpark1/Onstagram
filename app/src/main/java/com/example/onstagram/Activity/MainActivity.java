@@ -42,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        System.out.println(IP +  " 씨발씨발씨발씨발");
-
         startService();
 
         frag_main = new Fragment_main();
