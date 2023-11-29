@@ -100,13 +100,5 @@ public class MainActivity extends AppCompatActivity {
         return idx;
     }
 
-    // 서비스로부터 받아온 데이터 처리
-    private final BroadcastReceiver receiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-
-        }
-    };
-
 
 }

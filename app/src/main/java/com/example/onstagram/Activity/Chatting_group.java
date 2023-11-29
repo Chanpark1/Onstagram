@@ -7,13 +7,19 @@ import static com.example.onstagram.Service.Service.PORT;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -70,6 +76,10 @@ public class Chatting_group extends AppCompatActivity {
     Service service;
     String room_idx;
 
+    String sender_username;
+
+    private String msg_data;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,6 +98,9 @@ public class Chatting_group extends AppCompatActivity {
     }
 
     private void init() {
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+
         iv_back = findViewById(R.id.chat_group_back);
         tv_username = findViewById(R.id.chat_group_username);
         iv_video = findViewById(R.id.chat_group_video);
@@ -108,6 +121,8 @@ public class Chatting_group extends AppCompatActivity {
 
             System.out.println("idx_list 받음 : " + idx_list.size());
         }
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(receiver, new IntentFilter("data"));
 
 
     }
@@ -330,6 +345,38 @@ public class Chatting_group extends AppCompatActivity {
 
     }
 
+    private BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            sender_username = intent.getStringExtra("username");
+
+            msg_data = intent.getStringExtra("message_group");
+
+            String[] filter = msg_data.split("@");
+
+            System.out.println("Chatting_group sendMsg  : " + msg_data);
+
+            String sendMsg = filter[0];
+            String room_idx = filter[2];
+            String sender_idx = filter[3];
+
+
+
+            list.add(0, new GroupMessage(null, sender_idx, sendMsg, null, 1, room_idx, sender_username, null));
+
+            adapter = new GroupMessageAdapter(Chatting_group.this, list);
+            manager = new LinearLayoutManager(Chatting_group.this, LinearLayoutManager.VERTICAL, true);
+
+            rv.setAdapter(adapter);
+            rv.setLayoutManager(manager);
+
+            rv.scrollToPosition(0);
+
+
+//            dos.writeUTF(sendMsg + "@" + "CHATTING_GROUP" + "@" + room_idx + "@" + getIdx());
+
+        }
+    };
     class msgUpdate_group implements Runnable {
 
         private String msg;

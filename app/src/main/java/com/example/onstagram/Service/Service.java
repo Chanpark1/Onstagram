@@ -46,7 +46,7 @@ import retrofit2.Response;
 
 public class Service extends android.app.Service {
 
-    public static final String IP = "172.20.10.2";
+    public static final String IP = "192.168.6.171";
     public static final int PORT = 4462;
 
     private final String ACCESS_ = "ACCESS";
@@ -337,6 +337,7 @@ public class Service extends android.app.Service {
                                         String username = response.body();
 
                                         intent.putExtra("room_idx", filter[2]);
+                                        intent.putExtra("username", username);
 
                                         PendingIntent p_intent = PendingIntent.getActivity(Service.this, (int) System.currentTimeMillis(), intent,PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
 
